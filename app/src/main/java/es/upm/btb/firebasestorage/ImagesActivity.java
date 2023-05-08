@@ -43,11 +43,6 @@ public class ImagesActivity extends AppCompatActivity {
         mStorage = FirebaseStorage.getInstance();
         mStorageRef = mStorage.getReference().child("uploads");
 
-        loadImages();
-
-    }
-
-    private void loadImages() {
         mStorageRef.listAll().addOnSuccessListener(new OnSuccessListener<ListResult>() {
             @Override
             public void onSuccess(ListResult listResult) {

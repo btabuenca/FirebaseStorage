@@ -19,7 +19,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
     private Context mContext;
     private List<String> mUploads;
 
-    private static String TAG_LOG = "Picasso";
+    private static String TAG_LOG = "btb";
 
     public ImageAdapter(Context context, List<String> uploads) {
         mContext = context;

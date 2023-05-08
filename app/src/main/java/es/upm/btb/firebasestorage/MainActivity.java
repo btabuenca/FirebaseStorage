@@ -29,7 +29,7 @@ import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private static final String TAG = "MainActivity";
+    private static final String TAG = "btb";
 
     //constant to track image chooser intent
     private static final int PICK_IMAGE_REQUEST = 234;
@@ -131,16 +131,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             //dismissing the progress dialog
                             progressDialog.dismiss();
-
                             String sFilePath = filePath.toString();
                             String sSessionUri = taskSnapshot.getUploadSessionUri().toString().trim();
                             String sMetadataUrl = taskSnapshot.getMetadata().getReference().getDownloadUrl().toString();
-
-                            //displaying success toast
                             Toast.makeText(getApplicationContext(), "File Uploaded! ["+sFilePath+"]["+sSessionUri + "][" + sMetadataUrl+"]", Toast.LENGTH_LONG).show();
-
                             Log.d(TAG, "["+sFilePath+"]["+sSessionUri+"]["+sMetadataUrl+"]");
-
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
