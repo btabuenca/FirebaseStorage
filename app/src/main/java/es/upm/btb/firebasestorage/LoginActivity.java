@@ -1,4 +1,4 @@
-package es.upm.miw.firebasestorage;
+package es.upm.btb.firebasestorage;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,24 +17,20 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class LoginActivity extends AppCompatActivity
-{
+public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
 
     private FirebaseAuth mAuth;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         mAuth = FirebaseAuth.getInstance();
 
     }
 
     @Override
-    protected void onStart()
-    {
+    protected void onStart() {
         super.onStart();
 
         FirebaseUser currentUser = mAuth.getCurrentUser();
@@ -48,10 +44,8 @@ public class LoginActivity extends AppCompatActivity
             final Button buttonSignUp = findViewById(R.id.buttonSignUp);
             final Button buttonSignIn = findViewById(R.id.buttonSignIn);
 
-            buttonSignUp.setOnClickListener(new View.OnClickListener()
-            {
-                public void onClick(View v)
-                {
+            buttonSignUp.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
 
                     final String email = editTextEmail.getText().toString();
                     final String password = editTextPassword.getText().toString();
@@ -60,10 +54,8 @@ public class LoginActivity extends AppCompatActivity
                 }
             });
 
-            buttonSignIn.setOnClickListener(new View.OnClickListener()
-            {
-                public void onClick(View v)
-                {
+            buttonSignIn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
 
                     final String email = editTextEmail.getText().toString();
                     final String password = editTextPassword.getText().toString();
@@ -78,14 +70,11 @@ public class LoginActivity extends AppCompatActivity
 
     }
 
-    private void signUp(String email, String password)
-    {
+    private void signUp(String email, String password) {
         mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>()
-                {
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
-                    public void onComplete(@NonNull Task<AuthResult> task)
-                    {
+                    public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "createUserWithEmail:success");
@@ -101,14 +90,11 @@ public class LoginActivity extends AppCompatActivity
                 });
     }
 
-    private void signIn(String email, String password)
-    {
+    private void signIn(String email, String password) {
         mAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>()
-                {
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
-                    public void onComplete(@NonNull Task<AuthResult> task)
-                    {
+                    public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithEmail:success");
@@ -124,14 +110,13 @@ public class LoginActivity extends AppCompatActivity
                 });
     }
 
-    private void showHome(@NonNull FirebaseUser user)
-    {
+    private void showHome(@NonNull FirebaseUser user) {
         Intent intent = new Intent(this, MainActivity.class);
-        if (user != null){
-            Log.d(TAG, "Login for user: "+user.getEmail());
+        if (user != null) {
+            Log.d(TAG, "Login for user: " + user.getEmail());
             intent.putExtra("email", user.getEmail());
 
-        }else{
+        } else {
             Log.d(TAG, "Login with anonymous user.");
             intent.putExtra("email", "");
         }

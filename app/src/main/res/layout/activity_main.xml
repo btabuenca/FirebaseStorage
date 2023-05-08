@@ -4,7 +4,7 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="es.upm.miw.firebasestorage.MainActivity">
+    tools:context="es.upm.btb.firebasestorage.MainActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -17,14 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Choose" />
-
-        <EditText
-            android:id="@+id/editText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="4"
-            android:hint="Enter name for Image" />
+            android:text="Choose image" />
 
     </LinearLayout>
 
@@ -50,13 +43,13 @@
             android:layout_weight="1"
             android:text="Upload" />
 
-        <TextView
-            android:id="@+id/textViewShow"
+        <Button
+            android:id="@+id/buttonImages"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="View Uploads"
-            android:textAlignment="center"
-            android:textStyle="bold" />
+            android:layout_weight="1"
+            android:text="View uploads" />
+
+
     </LinearLayout>
 </RelativeLayout>

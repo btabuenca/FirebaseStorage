@@ -1,4 +1,4 @@
-package es.upm.miw.firebasestorage;
+package es.upm.btb.firebasestorage;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("es.upm.miw.firebasestorage", appContext.getPackageName());
+        assertEquals("es.upm.btb.firebasestorage", appContext.getPackageName());
     }
 }

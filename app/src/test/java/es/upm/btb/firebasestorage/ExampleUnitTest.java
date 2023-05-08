@@ -1,4 +1,4 @@
-package es.upm.miw.firebasestorage;
+package es.upm.btb.firebasestorage;
 
 import org.junit.Test;
 
